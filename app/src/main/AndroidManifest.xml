@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="fast.startup">
+
+    <application
+        android:name="fast.startup.AppStartUpApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.StartUp">
+        <activity
+            android:name="fast.startup.view.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat.StartUp">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+
+            //没有定义 WorkManagerInitializer 是因为JobManagerInitializer依赖WorkManagerInitializer，
+            //必须WorkManagerInitializer初始化完成后才会初始化JobManagerInitializer
+            <meta-data  android:name="fast.startup.init.JobManagerInitializer"
+                android:value="androidx.startup" />
+
+            <meta-data android:name="fast.startup.init.MusicManagerInitializer"
+                android:value="androidx.startup"/>
+        </provider>
+
+    </application>
+
+</manifest>
