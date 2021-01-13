@@ -26,7 +26,7 @@ public class MusicManager {
 
     public void operation() {
         for (int i = 0; i < 50000; i++) {
-            if (i == 9999) {
+            if (i == 49999) {
                 Toast.makeText(mContext, "MusicManager init success!", Toast.LENGTH_SHORT).show();
             }
         }

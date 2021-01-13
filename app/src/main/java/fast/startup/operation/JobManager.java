@@ -26,7 +26,7 @@ public class JobManager {
 
     public void operation() {
         for (int i = 0; i < 100000; i++) {
-            if (i == 9999) {
+            if (i == 99999) {
                 Toast.makeText(mContext, "JobManager init success!", Toast.LENGTH_SHORT).show();
             }
         }
